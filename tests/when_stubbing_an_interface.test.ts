@@ -1,4 +1,4 @@
-import { Stubber } from "../src/typeStubber";
+import { Stubber } from "../src/stubber";
 
 describe("when stubbing an interface", () => {
     const defaultFunctionResponse = "this function can still execute"
