@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/Cazoo-uk/typeStubber.ts/issues"
   },
-  "homepage": "https://github.com/Cazoo-uk/typeStubber.ts#readme"
+  "homepage": "https://github.com/Cazoo-uk/typeStubber.ts#readme",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {}
 }
