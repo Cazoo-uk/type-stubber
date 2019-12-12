@@ -1,0 +1,19 @@
+{
+  "name": "typestubber.ts",
+  "version": "0.0.1",
+  "description": "Fluent API for overriding data stubs",
+  "main": "typeStubber.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cazoo-uk/typeStubber.ts.git"
+  },
+  "author": "Dan Cohen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cazoo-uk/typeStubber.ts/issues"
+  },
+  "homepage": "https://github.com/Cazoo-uk/typeStubber.ts#readme"
+}
