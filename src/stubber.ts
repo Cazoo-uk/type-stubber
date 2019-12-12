@@ -1,4 +1,4 @@
-export class Stubber<T> {
+export class Stubber<T extends object> {
   private stub: T;
   private actions: {
     (stub: T): void;
@@ -15,9 +15,9 @@ export class Stubber<T> {
   }
 
   public with(stub: Partial<T>) {
-    this.stub = {
-      ...this.stub,
-      ...stub
+    this.stub = <T> {
+      ...(<object> this.stub),
+      ...(<object> stub)
     };
 
     return this;
