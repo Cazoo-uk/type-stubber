@@ -1,6 +1,6 @@
 {
   "name": "type-stubber",
-  "version": "0.0.1",
+  "version": "0.0.4-0",
   "description": "Fluent API for overriding data stubs",
   "main": "stubber.ts",
   "scripts": {
@@ -8,7 +8,10 @@
     "prettier:check": "prettier --check \"**/*.ts\"",
     "prettier:fix": "prettier --write \"**/*.ts\"",
     "lint:check": "tslint -p tsconfig.json",
-    "lint:fix": "tslint -p tsconfig.json --fix"
+    "lint:fix": "tslint -p tsconfig.json --fix",
+    "fix": "npm run lint:fix && npm run prettier:fix",
+    "preversion": "npm run test & npm run lint:check & npm run prettier:check",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -26,9 +29,8 @@
     "prettier": "^1.19.1",
     "ts-jest": "^24.3.0",
     "tslint": "^5.20.1",
-    "typescript": "^3.8.3"
-  },
-  "dependencies": {
+    "typescript": "^3.8.3",
     "tslint-config-prettier": "^1.18.0"
-  }
+  },
+  "dependencies": {}
 }
