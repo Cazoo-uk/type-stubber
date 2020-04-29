@@ -75,7 +75,7 @@ jobs:
             echo //registry.npmjs.org/:_authToken=${CAZOO_NPM_TOKEN}>.npmrc
       - run:
           name: Publish package
-          command: echo "npm publish"
+          command: npm publish
 
 workflows:
   release:
