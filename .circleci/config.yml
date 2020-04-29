@@ -43,6 +43,15 @@ jobs:
           command: |
             npm run prettier:check
 
+  lint:
+    <<: *default_config
+    steps:
+      - *restore_repo
+      - run:
+          name: npm lint check
+          command: |
+            npm run lint:check
+
   test:
     <<: *default_config
     steps:
@@ -59,6 +68,10 @@ workflows:
           name: 'Init'
       - prettier:
           name: 'Prettier check'
+          requires:
+            - 'Init'
+      - lint:
+          name: 'Lint check'
           requires:
             - 'Init'
       - test:

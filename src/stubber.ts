@@ -1,8 +1,6 @@
 export class Stubber<T extends object> {
   private stub: T
-  private actions: {
-    (stub: T): void
-  }[]
+  private actions: Array<(stub: T) => void>
 
   public constructor(defaultStub: T) {
     this.stub = defaultStub
@@ -15,10 +13,10 @@ export class Stubber<T extends object> {
   }
 
   public with(stub: Partial<T>) {
-    this.stub = <T>{
-      ...(<object>this.stub),
-      ...(<object>stub),
-    }
+    this.stub = ({
+      ...(this.stub as object),
+      ...(stub as object),
+    } as T)
 
     return this
   }

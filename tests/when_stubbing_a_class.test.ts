@@ -4,15 +4,15 @@ describe('when stubbing a type', () => {
   const defaultFunctionResponse = 'this function can still execute'
 
   class TestClass {
-    propertyA: string
-    propertyB: number
-    functionA: () => string
+    public propertyA: string
+    public propertyB: number
+    public functionA: () => string
   }
 
   const defaultStub = {
+    functionA: () => defaultFunctionResponse,
     propertyA: 'hello, world',
     propertyB: 15,
-    functionA: () => defaultFunctionResponse,
   }
 
   it('should return a default stub', () => {

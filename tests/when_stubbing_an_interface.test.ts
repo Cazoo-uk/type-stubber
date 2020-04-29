@@ -4,15 +4,15 @@ describe('when stubbing an interface', () => {
   const defaultFunctionResponse = 'this function can still execute'
 
   interface TestInterface {
+    functionA: () => string
     propertyA: string
     propertyB: number
-    functionA: () => string
   }
 
   const defaultStub = {
+    functionA: () => defaultFunctionResponse,
     propertyA: 'hello, world',
     propertyB: 15,
-    functionA: () => defaultFunctionResponse,
   }
 
   it('should return a default stub', () => {
