@@ -4,7 +4,11 @@
   "description": "Fluent API for overriding data stubs",
   "main": "stubber.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prettier:check": "prettier --check \"**/*.ts\"",
+    "prettier:fix": "prettier --write \"**/*.ts\"",
+    "lint:check": "tslint -p tsconfig.json",
+    "lint:fix": "tslint -p tsconfig.json --fix"
   },
   "repository": {
     "type": "git",
@@ -24,5 +28,7 @@
     "tslint": "^5.20.1",
     "typescript": "^3.8.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "tslint-config-prettier": "^1.18.0"
+  }
 }
