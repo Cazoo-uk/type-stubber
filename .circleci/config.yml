@@ -5,6 +5,10 @@ references:
 # Set working directory
 working_directory: &working_directory ~/project
 
+semver_tags: &semver_tags
+  tags:
+    only: /^v.*/
+
 # Set default configuration
 default_config: &default_config
   docker:
@@ -61,20 +65,51 @@ jobs:
           command: |
             npm test
 
+  publish:
+    <<: *default_config
+    steps:
+      - *restore_repo
+      - run:
+          name: authenticate
+          command: |
+            echo //registry.npmjs.org/:_authToken=${CAZOO_NPM_TOKEN}>.npmrc
+      - run:
+          name: Publish package
+          command: echo "npm publish"
+
 workflows:
   release:
     jobs:
       - before_script:
           name: 'Init'
+          filters:
+            <<: *semver_tags
       - prettier:
           name: 'Prettier check'
           requires:
             - 'Init'
+          filters:
+            <<: *semver_tags
       - lint:
           name: 'Lint check'
           requires:
             - 'Init'
+          filters:
+            <<: *semver_tags
       - test:
           name: 'Run tests'
           requires:
             - 'Init'
+          filters:
+            <<: *semver_tags
+      - publish:
+          name: 'Publish package'
+          context: cazoo-npm
+          requires:
+            - 'Run tests'
+            - 'Lint check'
+            - 'Prettier check'
+          filters:
+            branches:
+              ignore: /.*/
+            <<: *semver_tags
