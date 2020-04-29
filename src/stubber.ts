@@ -1,33 +1,33 @@
 export class Stubber<T extends object> {
-  private stub: T;
+  private stub: T
   private actions: {
-    (stub: T): void;
-  }[];
+    (stub: T): void
+  }[]
 
   public constructor(defaultStub: T) {
-    this.stub = defaultStub;
-    this.actions = [];
+    this.stub = defaultStub
+    this.actions = []
   }
 
   public set(action: (stub: T) => void): Stubber<T> {
-    this.actions.push(action);
-    return this;
+    this.actions.push(action)
+    return this
   }
 
   public with(stub: Partial<T>) {
-    this.stub = <T> {
-      ...(<object> this.stub),
-      ...(<object> stub)
-    };
+    this.stub = <T>{
+      ...(<object>this.stub),
+      ...(<object>stub),
+    }
 
-    return this;
+    return this
   }
 
   public build(): T {
     this.actions.forEach(action => {
-      action(this.stub);
-    });
+      action(this.stub)
+    })
 
-    return this.stub as T;
+    return this.stub as T
   }
 }
