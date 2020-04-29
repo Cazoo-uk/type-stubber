@@ -4,7 +4,9 @@
   "description": "Fluent API for overriding data stubs",
   "main": "stubber.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prettier:check": "prettier --check \"**/*.ts\"",
+    "prettier:fix": "prettier --write \"**/*.ts\""
   },
   "repository": {
     "type": "git",
