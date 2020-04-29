@@ -1,7 +1,7 @@
 {
   "name": "type-stubber",
   "version": "0.0.5-0",
-  "description": "Fluent API for overriding data stubs",
+  "description": "Fluent API for overriding test stubs",
   "main": "stubber.ts",
   "scripts": {
     "test": "jest",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cazoo-uk/stubber.ts.git"
+    "url": "git+https://github.com/Cazoo-uk/type-stubber.git"
   },
   "author": "Dan Cohen",
   "license": "MIT",
