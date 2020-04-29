@@ -13,10 +13,10 @@ export class Stubber<T extends object> {
   }
 
   public with(stub: Partial<T>) {
-    this.stub = ({
+    this.stub = {
       ...(this.stub as object),
       ...(stub as object),
-    } as T)
+    } as T
 
     return this
   }
