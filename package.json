@@ -1,6 +1,6 @@
 {
   "name": "type-stubber",
-  "version": "0.0.5-0",
+  "version": "1.0.0-0",
   "description": "Fluent API for overriding test stubs",
   "main": "stubber.ts",
   "scripts": {
