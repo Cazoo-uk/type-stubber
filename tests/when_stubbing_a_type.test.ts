@@ -1,7 +1,7 @@
 import { Stubber } from '../src/stubber'
 
 describe('when stubbing a type', () => {
-  type TestType {
+  type TestType = {
     propertyA: string
     propertyB: number
   }
