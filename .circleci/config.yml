@@ -34,6 +34,15 @@ jobs:
           command: npm ci
       - *save_repo
 
+  prettier:
+    <<: *default_config
+    steps:
+      - *restore_repo
+      - run:
+          name: npm prettier check
+          command: |
+            npm run prettier:check
+
   test:
     <<: *default_config
     steps:
@@ -47,8 +56,12 @@ workflows:
   release:
     jobs:
       - before_script:
-          name: "Init"
-      - test:
-          name: "Run tests"
+          name: 'Init'
+      - prettier:
+          name: 'Prettier check'
           requires:
-            - "Init"
+            - 'Init'
+      - test:
+          name: 'Run tests'
+          requires:
+            - 'Init'
